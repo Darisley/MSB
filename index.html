@@ -2,28 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-    <meta name="description" content="Sistema de Controle de EPI - MSB Construções - Funciona Offline">
-    <meta name="theme-color" content="#1F3A5F">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Controle EPI">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de EPI - MSB Construções</title>
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="assets/icon-192.png">
-    <link rel="apple-touch-icon" href="assets/icon-192.png">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- CSS Customizado -->
-    <link rel="stylesheet" href="styles.css">
     <!-- jsPDF e html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -32,8 +15,6 @@
     <!-- jQuery Mask para CPF -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <!-- JavaScript da Aplicação -->
-    <script src="app.js"></script>
     
     <style>
         * {
@@ -339,6 +320,7 @@
             font-size: 0.85rem;
         }
 
+        /* Estilos para importação aprimorada */
         .import-area-enhanced {
             border: 3px dashed #1F3A5F;
             border-radius: 20px;
@@ -427,6 +409,7 @@
             display: inline-block;
         }
 
+        /* Formato selector */
         .formato-selector {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -442,6 +425,7 @@
             margin-top: 15px;
         }
 
+        /* Nota header */
         .nota-header {
             background: white;
             border-radius: 12px;
@@ -492,6 +476,7 @@
             color: white;
         }
 
+        /* Abas da nota */
         .nota-tabs {
             display: flex;
             gap: 5px;
@@ -535,6 +520,7 @@
             animation: fadeIn 0.3s ease;
         }
 
+        /* Produtos toolbar */
         .produtos-toolbar {
             display: flex;
             justify-content: space-between;
@@ -561,6 +547,7 @@
             font-weight: 600;
         }
 
+        /* Cards de produtos aprimorados */
         .produtos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -729,6 +716,7 @@
             background: #c82333;
         }
 
+        /* Modo de edição */
         .produto-edit-mode {
             background: #F8FAFC;
             padding: 15px;
@@ -772,6 +760,7 @@
             margin-top: 15px;
         }
 
+        /* Raw content */
         .raw-content {
             background: #1e1e1e;
             color: #d4d4d4;
@@ -786,6 +775,7 @@
             word-wrap: break-word;
         }
 
+        /* Estilos para múltiplos EPIs */
         .epi-multiplo-container {
             background: #F8F9FA;
             border-radius: 8px;
@@ -962,6 +952,7 @@
             margin: 15px 0;
         }
 
+        /* Modal de edição */
         .modal {
             display: none;
             position: fixed;
@@ -1027,6 +1018,7 @@
             justify-content: flex-end;
         }
 
+        /* Animações */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -1042,11 +1034,8 @@
             animation: slideIn 0.3s ease;
         }
 
+        /* Responsividade */
         @media (max-width: 768px) {
-            .dashboard {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
             .produtos-grid {
                 grid-template-columns: 1fr;
             }
@@ -1062,24 +1051,6 @@
             .epi-item {
                 grid-template-columns: 1fr;
             }
-
-            .header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .header-logo {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-logo h1 {
-                font-size: 1.4rem;
-            }
-
-            .header-date {
-                justify-content: center;
-            }
         }
     </style>
 </head>
@@ -1087,17 +1058,12 @@
     <!-- Header - MSB Construções -->
     <header class="header">
         <div class="header-logo">
-            <img src="assets/icon-192.png" alt="MSB Construções" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxRjNBNUYiLz48dGV4dCB4PSIxMCIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMzAiPk1TQjwvdGV4dD48L3N2Zz4=';">
+            <img src="Logo.png" alt="MSB Construções" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxRjNBNUYiLz48dGV4dCB4PSIxMCIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMzAiPk1TQjwvdGV4dD48L3N2Zz4=';">
             <h1>Controle de EPI</h1>
         </div>
-        <div class="header-right">
-            <div class="header-date">
-                <i class="fas fa-calendar-alt"></i>
-                <span id="dataSistema"></span>
-            </div>
-            <button class="theme-toggle" title="Alternar tema">
-                <i class="fas fa-moon"></i>
-            </button>
+        <div class="header-date">
+            <i class="fas fa-calendar-alt"></i>
+            <span id="dataSistema"></span>
         </div>
     </header>
 
@@ -1144,7 +1110,7 @@
         </div>
     </div>
 
-    <!-- Aba Cadastros -->
+    <!-- Aba Cadastros - MODIFICADA com importação de funcionários por Excel -->
     <div id="aba-cadastros" class="tab-content active">
         <div class="section">
             <div class="section-title">
@@ -1228,7 +1194,7 @@
         </div>
     </div>
 
-    <!-- Aba Importação de Nota -->
+    <!-- Aba Importação de Nota - INTERFACE MELHORADA -->
     <div id="aba-importacao" class="tab-content">
         <div class="section">
             <div class="section-title">
@@ -1236,7 +1202,7 @@
                 <span>Importar Nota Fiscal</span>
             </div>
             
-            <!-- Área de drag and drop -->
+            <!-- Área de drag and drop aprimorada -->
             <div id="dropArea" class="import-area-enhanced" onclick="document.getElementById('fileInput').click()">
                 <div class="import-icon">
                     <i class="fas fa-cloud-upload-alt"></i>
@@ -1255,7 +1221,7 @@
                 <input type="file" id="fileInput" accept=".pdf,.txt,.csv,.xml" style="display: none;" onchange="processarNotaFiscal(this)">
             </div>
 
-            <!-- Seletor de formato manual -->
+            <!-- Seletor de formato manual (fallback) -->
             <div id="formatoSelector" class="formato-selector hidden">
                 <div class="alert alert-info">
                     <i class="fas fa-exclamation-triangle"></i>
@@ -1280,7 +1246,7 @@
                 </div>
             </div>
 
-            <!-- Informações da nota -->
+            <!-- Informações da nota com abas -->
             <div id="infoNota" class="hidden">
                 <div class="nota-header">
                     <div class="nota-info-grid">
@@ -1581,7 +1547,7 @@
     <!-- Template Relatório PDF -->
     <div id="relatorioPDF" class="hidden" style="background: white; padding: 30px; max-width: 800px; font-family: 'Segoe UI', sans-serif;">
         <div style="display: flex; align-items: center; gap: 20px; border-bottom: 2px solid #1F3A5F; padding-bottom: 20px; margin-bottom: 20px;">
-            <img src="assets/icon-192.png" alt="MSB" style="height: 70px;" onerror="this.style.display='none'">
+            <img src="Logo.png" alt="MSB" style="height: 70px;" onerror="this.style.display='none'">
             <div>
                 <h2 style="color: #1F3A5F; margin: 0;">GUIA DE ENTREGA DE EPI</h2>
                 <p style="color: #666;">MSB Construções - "Inovação que constrói o futuro"</p>
@@ -1594,7 +1560,6 @@
     </div>
 
     <script>
-        // Todas as funções JavaScript continuam aqui (idênticas ao arquivo original)
         // ==================== INICIALIZAÇÃO ====================
         let canvas, ctx, desenhando = false;
         let assinaturaDataURL = '';
@@ -1623,13 +1588,6 @@
             
             // Máscara do CPF
             $('#cpfFuncionario').mask('000.000.000-00');
-
-            // Registrar service worker
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('service-worker.js')
-                    .then(reg => console.log('Service Worker registrado:', reg))
-                    .catch(err => console.log('Erro ao registrar Service Worker:', err));
-            }
         });
 
         function atualizarDataSistema() {
@@ -1639,4 +1597,2001 @@
         }
 
         function mudarAba(aba) {
-            document.querySelectorAll('.tab').forEach(t =>
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.closest('.tab').classList.add('active');
+            document.getElementById(`aba-${aba}`).classList.add('active');
+            
+            if (aba === 'relatorios') {
+                carregarFuncionariosFiltro();
+            } else if (aba === 'base') {
+                carregarBaseDados();
+            } else if (aba === 'entregas') {
+                document.getElementById('episList').innerHTML = '';
+                contadorItensEPI = 0;
+                adicionarItemEPI();
+                atualizarResumoEntregas();
+            }
+        }
+
+        // ==================== CANVAS ASSINATURA ====================
+        function inicializarCanvas() {
+            canvas = document.getElementById('canvasAssinatura');
+            if (!canvas) return;
+            
+            ctx = canvas.getContext('2d');
+            ctx.strokeStyle = '#1F3A5F';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            canvas.addEventListener('mousedown', iniciarDesenho);
+            canvas.addEventListener('mousemove', desenhar);
+            canvas.addEventListener('mouseup', pararDesenho);
+            canvas.addEventListener('mouseout', pararDesenho);
+            canvas.addEventListener('touchstart', iniciarDesenhoTouch);
+            canvas.addEventListener('touchmove', desenharTouch);
+            canvas.addEventListener('touchend', pararDesenho);
+        }
+
+        function iniciarDesenho(e) {
+            desenhando = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        }
+
+        function desenhar(e) {
+            if (!desenhando) return;
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        }
+
+        function iniciarDesenhoTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            desenhando = true;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function desenharTouch(e) {
+            e.preventDefault();
+            if (!desenhando) return;
+            const touch = e.touches[0];
+            const rect = canvas.getBoundingClientRect();
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function pararDesenho() {
+            desenhando = false;
+        }
+
+        function limparAssinatura() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            assinaturaDataURL = '';
+            document.getElementById('assinaturaStatus').innerHTML = '';
+        }
+
+        function salvarAssinatura() {
+            if (ctx) {
+                assinaturaDataURL = canvas.toDataURL('image/png');
+                document.getElementById('assinaturaStatus').innerHTML = '<i class="fas fa-check-circle"></i> Assinatura salva com sucesso!';
+            }
+        }
+
+        // ==================== CADASTROS ====================
+        function cadastrarFuncionario() {
+            const nome = document.getElementById('nomeFuncionario').value;
+            const cpf = document.getElementById('cpfFuncionario').value;
+            const funcao = document.getElementById('funcaoFuncionario').value;
+
+            if (!nome || !cpf || !funcao) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            funcionarios.push({
+                id: Date.now(),
+                nome,
+                cpf,
+                funcao,
+                dataCadastro: new Date().toISOString()
+            });
+
+            localStorage.setItem('msb_funcionarios', JSON.stringify(funcionarios));
+            
+            document.getElementById('nomeFuncionario').value = '';
+            document.getElementById('cpfFuncionario').value = '';
+            document.getElementById('funcaoFuncionario').value = '';
+
+            carregarSelects();
+            atualizarDashboard();
+            alert('Funcionário cadastrado com sucesso!');
+        }
+
+        function cadastrarEPI() {
+            const nome = document.getElementById('nomeEPI').value;
+            const ca = document.getElementById('caEPI').value;
+            const quantidade = parseInt(document.getElementById('qtdEPI').value);
+            const valor = parseFloat(document.getElementById('valorEPI').value) || 0;
+            const fornecedor = document.getElementById('fornecedorEPI').value;
+
+            if (!nome || !ca || !quantidade) {
+                alert('Preencha os campos obrigatórios!');
+                return;
+            }
+
+            epis.push({
+                id: Date.now(),
+                nome,
+                ca,
+                quantidade,
+                valor,
+                fornecedor,
+                dataCadastro: new Date().toISOString()
+            });
+
+            localStorage.setItem('msb_epis', JSON.stringify(epis));
+            
+            document.getElementById('nomeEPI').value = '';
+            document.getElementById('caEPI').value = '';
+            document.getElementById('qtdEPI').value = '';
+            document.getElementById('valorEPI').value = '';
+            document.getElementById('fornecedorEPI').value = '';
+
+            carregarSelects();
+            atualizarDashboard();
+            alert('EPI cadastrado com sucesso!');
+        }
+
+        // ==================== FUNÇÕES DE IMPORTAÇÃO DE FUNCIONÁRIOS ====================
+
+        // Template para download do modelo de funcionários
+        function exportarModeloFuncionarios() {
+            // Dados de exemplo para o modelo
+            const modelo = [
+                {
+                    'Nome': 'João Silva',
+                    'CPF': '12345678901',
+                    'Função': 'Pedreiro',
+                    'Observação': 'Use apenas números no CPF'
+                },
+                {
+                    'Nome': 'Maria Santos',
+                    'CPF': '98765432101',
+                    'Função': 'Auxiliar',
+                    'Observação': ''
+                }
+            ];
+            
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(modelo);
+            
+            // Ajustar largura das colunas
+            const colWidths = [
+                { wch: 40 }, // Nome
+                { wch: 15 }, // CPF
+                { wch: 20 }, // Função
+                { wch: 30 }  // Observação
+            ];
+            ws['!cols'] = colWidths;
+            
+            // Adicionar instruções na primeira linha
+            XLSX.utils.sheet_add_aoa(ws, [['INSTRUÇÕES:', 'Preencha os dados abaixo. O CPF deve conter apenas números']], { origin: 'A1' });
+            
+            XLSX.utils.book_append_sheet(wb, ws, 'Funcionários');
+            XLSX.writeFile(wb, 'Modelo_Importacao_Funcionarios.xlsx');
+            
+            alert('Modelo baixado com sucesso! Preencha os dados e importe o arquivo.');
+        }
+
+        function importarFuncionariosExcel(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+                    
+                    // Pegar a primeira planilha
+                    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    
+                    // Converter para JSON
+                    const jsonData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+                    
+                    // Processar os dados
+                    processarImportacaoFuncionarios(jsonData);
+                    
+                } catch (error) {
+                    console.error('Erro ao processar arquivo:', error);
+                    alert('Erro ao processar o arquivo. Verifique se é um arquivo Excel válido.');
+                }
+            };
+            
+            reader.readAsArrayBuffer(file);
+        }
+
+        function processarImportacaoFuncionarios(dados) {
+            // Verificar se há dados
+            if (dados.length < 2) {
+                alert('Arquivo vazio ou sem dados válidos.');
+                return;
+            }
+            
+            // Identificar cabeçalhos (primeira linha)
+            const headers = dados[0].map(h => String(h).toLowerCase().trim());
+            
+            // Mapear índices das colunas
+            const indiceNome = headers.findIndex(h => h.includes('nome'));
+            const indiceCPF = headers.findIndex(h => h.includes('cpf'));
+            const indiceFuncao = headers.findIndex(h => h.includes('função') || h.includes('funcao') || h.includes('cargo'));
+            
+            // Validar se encontrou as colunas necessárias
+            if (indiceNome === -1 || indiceCPF === -1 || indiceFuncao === -1) {
+                alert('O arquivo deve conter as colunas: Nome, CPF e Função. Use o modelo disponibilizado.');
+                return;
+            }
+            
+            let importados = 0;
+            let erros = [];
+            let duplicados = 0;
+            
+            // Processar linhas (pular cabeçalho)
+            for (let i = 1; i < dados.length; i++) {
+                const linha = dados[i];
+                
+                // Verificar se a linha está vazia
+                if (!linha || linha.length === 0) continue;
+                if (!linha[indiceNome] || !linha[indiceCPF]) continue;
+                
+                const nome = String(linha[indiceNome] || '').trim();
+                const cpfOriginal = String(linha[indiceCPF] || '').trim();
+                const funcao = String(linha[indiceFuncao] || '').trim();
+                
+                // Limpar CPF (remover pontos, traços e espaços)
+                const cpf = cpfOriginal.replace(/[^\d]/g, '');
+                
+                // Validar dados
+                if (!nome) {
+                    erros.push(`Linha ${i+1}: Nome não preenchido`);
+                    continue;
+                }
+                
+                if (!cpf || cpf.length !== 11) {
+                    erros.push(`Linha ${i+1}: CPF inválido (${cpfOriginal}) - deve conter 11 números`);
+                    continue;
+                }
+                
+                if (!funcao) {
+                    erros.push(`Linha ${i+1}: Função não preenchida`);
+                    continue;
+                }
+                
+                // Verificar se funcionário já existe (por CPF)
+                const existente = funcionarios.find(f => f.cpf.replace(/[^\d]/g, '') === cpf);
+                
+                if (existente) {
+                    duplicados++;
+                    // Opcional: atualizar dados existentes
+                    if (confirm(`Funcionário ${nome} já cadastrado. Deseja atualizar os dados?`)) {
+                        existente.nome = nome;
+                        existente.funcao = funcao;
+                        importados++;
+                    }
+                } else {
+                    // Adicionar novo funcionário
+                    funcionarios.push({
+                        id: Date.now() + importados + i,
+                        nome: nome,
+                        cpf: formatarCPF(cpf), // Armazenar formatado
+                        funcao: funcao,
+                        dataCadastro: new Date().toISOString(),
+                        origem: 'Importação Excel'
+                    });
+                    importados++;
+                }
+            }
+            
+            // Salvar no localStorage
+            if (importados > 0) {
+                localStorage.setItem('msb_funcionarios', JSON.stringify(funcionarios));
+            }
+            
+            // Limpar o input file
+            document.getElementById('importFuncionarios').value = '';
+            
+            // Atualizar selects e dashboard
+            carregarSelects();
+            atualizarDashboard();
+            
+            // Mostrar resultado
+            let mensagem = `Importação concluída!\n`;
+            mensagem += `✅ Funcionários importados/atualizados: ${importados}\n`;
+            if (duplicados > 0) mensagem += `🔄 Funcionários duplicados: ${duplicados}\n`;
+            
+            alert(mensagem);
+            
+            // Se houver erros, mostrar em um modal
+            if (erros.length > 0) {
+                mostrarErrosImportacao(erros);
+            }
+        }
+
+        function formatarCPF(cpf) {
+            // Formatar CPF: 000.000.000-00
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+
+        function mostrarErrosImportacao(erros) {
+            const modal = document.getElementById('modalErrosImportacao');
+            const listaErros = document.getElementById('listaErrosImportacao');
+            
+            listaErros.innerHTML = `
+                <ul style="list-style: none; padding: 0;">
+                    ${erros.map(err => `
+                        <li style="padding: 8px; margin-bottom: 5px; background: #f8d7da; border-radius: 4px; color: #721c24;">
+                            <i class="fas fa-times-circle" style="margin-right: 8px;"></i>
+                            ${err}
+                        </li>
+                    `).join('')}
+                </ul>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function fecharModalErros() {
+            document.getElementById('modalErrosImportacao').style.display = 'none';
+        }
+
+        // Função para exportar lista de funcionários atual
+        function exportarFuncionariosExcel() {
+            const funcData = funcionarios.map(f => ({
+                'ID': f.id,
+                'Nome': f.nome,
+                'CPF': f.cpf,
+                'Função': f.funcao,
+                'Data Cadastro': new Date(f.dataCadastro).toLocaleDateString('pt-BR'),
+                'Origem': f.origem || 'Cadastro Manual'
+            }));
+            
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(funcData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Funcionários');
+            XLSX.writeFile(wb, `Funcionarios_MSB_${new Date().getTime()}.xlsx`);
+        }
+
+        // ==================== CONFIGURAÇÃO DRAG AND DROP ====================
+        function configurarDragAndDrop() {
+            const dropArea = document.getElementById('dropArea');
+            
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+            });
+
+            function highlight() {
+                dropArea.classList.add('drag-over');
+            }
+
+            function unhighlight() {
+                dropArea.classList.remove('drag-over');
+            }
+
+            dropArea.addEventListener('drop', handleDrop, false);
+        }
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                processarArquivoDrop(files[0]);
+            }
+        }
+
+        function processarArquivoDrop(file) {
+            const allowedTypes = ['.pdf', '.txt', '.csv', '.xml'];
+            const fileExtension = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+            
+            if (!allowedTypes.includes(fileExtension)) {
+                alert('Tipo de arquivo não permitido. Use PDF, TXT, CSV ou XML.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const conteudo = e.target.result;
+                    processarNotaFiscal(conteudo, file.name);
+                } catch (error) {
+                    console.error('Erro ao processar:', error);
+                    alert('Erro ao processar nota fiscal. Verifique o formato do arquivo.');
+                }
+            };
+            
+            if (fileExtension === 'xml' || fileExtension === 'txt' || fileExtension === 'csv') {
+                reader.readAsText(file);
+            } else if (fileExtension === 'pdf') {
+                alert('Processamento de PDF requer backend. Por enquanto, use XML, CSV ou TXT.');
+            }
+        }
+
+        // ==================== FUNÇÃO PRINCIPAL DE PROCESSAMENTO ====================
+        function processarNotaFiscal(conteudo, nomeArquivo) {
+            console.log('Analisando arquivo:', nomeArquivo);
+            
+            produtosNota = [];
+            infoNotaAtual = {
+                arquivo: nomeArquivo,
+                fornecedor: '',
+                numero: '',
+                data: '',
+                total: 0,
+                rawContent: conteudo.substring(0, 2000) // Limitar para exibição
+            };
+            
+            const extensao = nomeArquivo.split('.').pop().toLowerCase();
+            
+            try {
+                let produtos = [];
+                
+                switch(extensao) {
+                    case 'xml':
+                        produtos = parseXMLNota(conteudo);
+                        break;
+                    case 'csv':
+                        produtos = parseCSVNota(conteudo);
+                        break;
+                    case 'txt':
+                        produtos = parseTXTNota(conteudo);
+                        break;
+                    default:
+                        document.getElementById('formatoSelector').classList.remove('hidden');
+                        return;
+                }
+                
+                if (produtos.length > 0) {
+                    produtosNota = produtos;
+                    exibirProdutosNotaAprimorado();
+                } else {
+                    document.getElementById('formatoSelector').classList.remove('hidden');
+                }
+                
+            } catch (error) {
+                console.error('Erro ao processar:', error);
+                alert('Erro ao processar o arquivo. Verifique o formato.');
+            }
+        }
+
+        // ==================== PARSER XML ====================
+        function parseXMLNota(xmlString) {
+            const produtos = [];
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+            // Tentar diferentes estruturas de XML de NF-e
+            const nfeProc = xmlDoc.querySelector('nfeProc');
+            const NFe = xmlDoc.querySelector('NFe') || xmlDoc.querySelector('NFE');
+            
+            if (nfeProc || NFe) {
+                const infNFe = (nfeProc || NFe).querySelector('infNFe');
+                
+                if (infNFe) {
+                    // Extrair informações da nota
+                    const emit = infNFe.querySelector('emit');
+                    if (emit) {
+                        infoNotaAtual.fornecedor = emit.querySelector('xNome')?.textContent || '';
+                    }
+                    
+                    infoNotaAtual.numero = infNFe.querySelector('nNF')?.textContent || '';
+                    const dataEmi = infNFe.querySelector('dhEmi')?.textContent || '';
+                    if (dataEmi) infoNotaAtual.data = dataEmi.split('T')[0];
+                    
+                    // Extrair produtos
+                    const dets = infNFe.querySelectorAll('det');
+                    dets.forEach((det, index) => {
+                        const prod = det.querySelector('prod');
+                        if (prod) {
+                            const produto = {
+                                id: Date.now() + Math.random() + index,
+                                codigo: prod.querySelector('cProd')?.textContent || '',
+                                nome: prod.querySelector('xProd')?.textContent || '',
+                                quantidade: parseFloat(prod.querySelector('qCom')?.textContent || '0'),
+                                valor: parseFloat(prod.querySelector('vUnCom')?.textContent || '0'),
+                                valorTotal: parseFloat(prod.querySelector('vProd')?.textContent || '0'),
+                                unidade: prod.querySelector('uCom')?.textContent || 'UN',
+                                ca: prod.querySelector('cProd')?.textContent || '',
+                                fornecedor: infoNotaAtual.fornecedor,
+                                selecionado: true,
+                                editando: false,
+                                status: 'novo'
+                            };
+                            
+                            // Verificar se já existe no estoque
+                            const existente = epis.find(e => e.ca === produto.codigo || e.nome === produto.nome);
+                            if (existente) {
+                                produto.status = 'duplicado';
+                            }
+                            
+                            produtos.push(produto);
+                        }
+                    });
+                    
+                    // Calcular total
+                    infoNotaAtual.total = produtos.reduce((acc, p) => acc + (p.valorTotal || 0), 0);
+                }
+            }
+
+            return produtos;
+        }
+
+        // ==================== PARSER CSV ====================
+        function parseCSVNota(csvString) {
+            const produtos = [];
+            const linhas = csvString.split('\n').filter(l => l.trim());
+            
+            if (linhas.length === 0) return produtos;
+            
+            // Detectar delimitador
+            const primeiraLinha = linhas[0];
+            const delimitador = primeiraLinha.includes(';') ? ';' : ',';
+            
+            // Identificar cabeçalhos
+            const cabecalhos = primeiraLinha.split(delimitador).map(h => 
+                h.trim().toLowerCase().replace(/[^a-z0-9]/g, '')
+            );
+            
+            // Mapear índices das colunas
+            const idxCodigo = cabecalhos.findIndex(h => 
+                h.includes('codigo') || h.includes('código') || h.includes('prod') || h.includes('item')
+            );
+            const idxDescricao = cabecalhos.findIndex(h => 
+                h.includes('descricao') || h.includes('descrição') || h.includes('produto') || h.includes('nome')
+            );
+            const idxQuantidade = cabecalhos.findIndex(h => 
+                h.includes('qtd') || h.includes('quantidade') || h.includes('qtde')
+            );
+            const idxValorUnit = cabecalhos.findIndex(h => 
+                h.includes('valorunit') || h.includes('valorunitario') || h.includes('vrunitario') || 
+                h.includes('precounitario') || h.includes('preco')
+            );
+            const idxUnidade = cabecalhos.findIndex(h => 
+                h.includes('unidade') || h.includes('un') || h.includes('und')
+            );
+
+            // Processar linhas (pular cabeçalho)
+            for (let i = 1; i < linhas.length; i++) {
+                const valores = linhas[i].split(delimitador);
+                if (valores.length < 3) continue;
+                
+                // Extrair valores
+                const codigo = idxCodigo >= 0 ? valores[idxCodigo]?.trim() || '' : '';
+                const descricao = idxDescricao >= 0 ? valores[idxDescricao]?.trim() || '' : '';
+                const quantidade = idxQuantidade >= 0 ? 
+                    parseFloat(valores[idxQuantidade]?.replace(/[^\d,.-]/g, '').replace(',', '.') || '0') : 1;
+                const valorUnit = idxValorUnit >= 0 ? 
+                    parseFloat(valores[idxValorUnit]?.replace(/[^\d,.-]/g, '').replace(',', '.') || '0') : 0;
+                const unidade = idxUnidade >= 0 ? valores[idxUnidade]?.trim() || 'UN' : 'UN';
+                
+                if (codigo && descricao && quantidade > 0) {
+                    const produto = {
+                        id: Date.now() + Math.random() + i,
+                        codigo: codigo,
+                        nome: descricao.substring(0, 100),
+                        quantidade: quantidade,
+                        valor: valorUnit,
+                        valorTotal: quantidade * valorUnit,
+                        unidade: unidade,
+                        ca: codigo,
+                        fornecedor: infoNotaAtual.fornecedor || 'Fornecedor do CSV',
+                        selecionado: true,
+                        editando: false,
+                        status: 'novo'
+                    };
+                    
+                    // Verificar se já existe no estoque
+                    const existente = epis.find(e => e.ca === produto.codigo || e.nome === produto.nome);
+                    if (existente) {
+                        produto.status = 'duplicado';
+                    }
+                    
+                    produtos.push(produto);
+                }
+            }
+            
+            // Calcular total
+            infoNotaAtual.total = produtos.reduce((acc, p) => acc + (p.valorTotal || 0), 0);
+            
+            return produtos;
+        }
+
+        // ==================== PARSER TXT ====================
+        function parseTXTNota(txtString) {
+            const produtos = [];
+            const linhas = txtString.split('\n');
+            
+            // Tentar detectar formato específico
+            const textoCompleto = txtString.toUpperCase();
+            
+            if (textoCompleto.includes('VINI COMERCIO') || textoCompleto.includes('BOTINA')) {
+                return parseViniTXT(txtString);
+            }
+            
+            // Formato genérico - múltiplos padrões
+            linhas.forEach((linha, index) => {
+                // Padrão 1: Código + Descrição + Quantidade + Valor
+                const padrao1 = linha.match(/(\d{4,6})\s+([A-Za-zÀ-ÿ0-9\s\/\-_\.\,\&\(\)]{10,}?)\s+(\d+)\s+([\d\.,]+)/i);
+                
+                // Padrão 2: Código - Descrição - Quantidade - Valor
+                const padrao2 = linha.match(/(\d{4,6})\s*-\s*([A-Za-zÀ-ÿ0-9\s\/\-_\.\,\&\(\)]+?)\s*-\s*(\d+)\s*-\s*([\d\.,]+)/i);
+                
+                // Padrão 3: NCM + Descrição + Quantidade (mais simples)
+                const padrao3 = linha.match(/(\d{6,8})\s+([A-Za-zÀ-ÿ0-9\s\/\-_\.\,\&\(\)]{10,}?)\s+(\d+)/i);
+                
+                const match = padrao1 || padrao2 || padrao3;
+                
+                if (match) {
+                    const produto = {
+                        id: Date.now() + Math.random() + index,
+                        codigo: match[1].trim(),
+                        nome: match[2].trim().substring(0, 80),
+                        quantidade: parseInt(match[3]),
+                        valor: match[4] ? parseFloat(match[4].replace(',', '.')) : 0,
+                        valorTotal: match[4] ? parseInt(match[3]) * parseFloat(match[4].replace(',', '.')) : 0,
+                        unidade: 'UN',
+                        ca: match[1].trim(),
+                        fornecedor: infoNotaAtual.fornecedor || 'Fornecedor',
+                        selecionado: true,
+                        editando: false,
+                        status: 'novo'
+                    };
+                    
+                    produtos.push(produto);
+                }
+            });
+            
+            // Calcular total
+            infoNotaAtual.total = produtos.reduce((acc, p) => acc + (p.valorTotal || 0), 0);
+            
+            return produtos;
+        }
+
+        // ==================== PARSER VINI EPI ====================
+        function parseViniTXT(txtString) {
+            const produtos = [];
+            const linhas = txtString.split('\n');
+            
+            infoNotaAtual.fornecedor = 'VINI COMERCIO DE ACESSORIOS DE SEGURANCA';
+            
+            linhas.forEach(linha => {
+                // Formato específico VINI
+                const viniMatch = linha.match(/(\d{6})\s+([A-Za-z0-9\s\/\-_\.\,\&\(\)]{10,}?)(?:\s*-\s*C\.A\s*\d+)?\s*(\d+)\s*(?:PAR|UN|PR|CX)?\s*([\d\.,]+)/i);
+                
+                if (viniMatch) {
+                    const produto = {
+                        id: Date.now() + Math.random(),
+                        codigo: viniMatch[1].trim(),
+                        nome: viniMatch[2].trim(),
+                        quantidade: parseInt(viniMatch[3]),
+                        valor: parseFloat(viniMatch[4].replace(',', '.')),
+                        valorTotal: parseInt(viniMatch[3]) * parseFloat(viniMatch[4].replace(',', '.')),
+                        unidade: 'UN',
+                        ca: viniMatch[1].trim(),
+                        fornecedor: infoNotaAtual.fornecedor,
+                        selecionado: true,
+                        editando: false,
+                        status: 'novo'
+                    };
+                    
+                    produtos.push(produto);
+                }
+            });
+            
+            infoNotaAtual.total = produtos.reduce((acc, p) => acc + (p.valorTotal || 0), 0);
+            
+            return produtos;
+        }
+
+        // ==================== FUNÇÕES DE EXIBIÇÃO ====================
+        function exibirProdutosNotaAprimorado() {
+            document.getElementById('formatoSelector').classList.add('hidden');
+            document.getElementById('infoNota').classList.remove('hidden');
+            
+            // Atualizar informações da nota
+            document.getElementById('notaArquivo').textContent = infoNotaAtual.arquivo || '-';
+            document.getElementById('notaFornecedor').textContent = infoNotaAtual.fornecedor || 'Não identificado';
+            document.getElementById('notaNumero').textContent = infoNotaAtual.numero || '-';
+            document.getElementById('notaData').textContent = infoNotaAtual.data || '-';
+            document.getElementById('notaTotal').textContent = `R$ ${infoNotaAtual.total.toFixed(2)}`;
+            
+            document.getElementById('produtosCount').textContent = produtosNota.length;
+            
+            const container = document.getElementById('produtosLista');
+            container.innerHTML = '';
+            
+            produtosNota.forEach(produto => {
+                const card = criarCardProduto(produto);
+                container.appendChild(card);
+            });
+            
+            atualizarContadorSelecionados();
+            
+            // Mostrar conteúdo bruto
+            document.getElementById('rawContent').textContent = infoNotaAtual.rawContent || 'Conteúdo bruto não disponível';
+        }
+
+        function criarCardProduto(produto) {
+            const card = document.createElement('div');
+            card.className = 'produto-card-enhanced';
+            card.dataset.id = produto.id;
+            
+            if (produto.editando) {
+                card.innerHTML = `
+                    <div class="produto-edit-mode">
+                        <div class="edit-campos">
+                            <div class="edit-campo">
+                                <label>Código</label>
+                                <input type="text" id="edit-codigo-${produto.id}" value="${produto.codigo}">
+                            </div>
+                            <div class="edit-campo">
+                                <label>Descrição</label>
+                                <input type="text" id="edit-nome-${produto.id}" value="${produto.nome}">
+                            </div>
+                            <div class="edit-campo">
+                                <label>Quantidade</label>
+                                <input type="number" id="edit-qtd-${produto.id}" value="${produto.quantidade}">
+                            </div>
+                            <div class="edit-campo">
+                                <label>Valor Unit.</label>
+                                <input type="number" id="edit-valor-${produto.id}" value="${produto.valor}" step="0.01">
+                            </div>
+                        </div>
+                        <div class="edit-actions">
+                            <button class="btn btn-success btn-sm" onclick="salvarEdicaoProdutoNota(${produto.id})">
+                                <i class="fas fa-save"></i> Salvar
+                            </button>
+                            <button class="btn btn-outline btn-sm" onclick="cancelarEdicaoProdutoNota(${produto.id})">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const statusClass = produto.status === 'duplicado' ? 'status-duplicado' : 
+                                  produto.status === 'editado' ? 'status-editado' : 'status-novo';
+                const statusText = produto.status === 'duplicado' ? 'Já existe' :
+                                  produto.status === 'editado' ? 'Editado' : 'Novo';
+                
+                card.innerHTML = `
+                    <div class="produto-card-header">
+                        <div class="produto-checkbox">
+                            <input type="checkbox" class="produto-checkbox-input" id="prod-check-${produto.id}" 
+                                   onchange="toggleSelecaoProdutoNota(${produto.id})" ${produto.selecionado ? 'checked' : ''}>
+                        </div>
+                        <div class="produto-codigo">
+                            <small>CÓDIGO</small>
+                            <span class="codigo-valor">${produto.codigo}</span>
+                        </div>
+                        <div class="produto-status">
+                            <span class="status-badge ${statusClass}">${statusText}</span>
+                        </div>
+                    </div>
+                    <div class="produto-card-body">
+                        <div class="produto-descricao">
+                            <small>DESCRIÇÃO</small>
+                            <p class="descricao-valor">${produto.nome}</p>
+                        </div>
+                        <div class="produto-detalhes">
+                            <div class="detalhe-item">
+                                <small>UN</small>
+                                <span>${produto.unidade || 'UN'}</span>
+                            </div>
+                            <div class="detalhe-item">
+                                <small>QTD</small>
+                                <span>${produto.quantidade}</span>
+                            </div>
+                            <div class="detalhe-item">
+                                <small>V. UNIT</small>
+                                <span>R$ ${produto.valor.toFixed(2)}</span>
+                            </div>
+                            <div class="detalhe-item">
+                                <small>V. TOTAL</small>
+                                <span>R$ ${(produto.valor * produto.quantidade).toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="produto-card-footer">
+                        <button class="btn-icon edit" onclick="editarProdutoNota(${produto.id})" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon delete" onclick="excluirProdutoNota(${produto.id})" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            }
+            
+            return card;
+        }
+
+        function toggleSelecaoProdutoNota(id) {
+            const produto = produtosNota.find(p => p.id == id);
+            if (produto) {
+                produto.selecionado = !produto.selecionado;
+                atualizarContadorSelecionados();
+            }
+        }
+
+        function selecionarTodosProdutos() {
+            produtosNota.forEach(produto => {
+                produto.selecionado = true;
+                const checkbox = document.getElementById(`prod-check-${produto.id}`);
+                if (checkbox) checkbox.checked = true;
+            });
+            atualizarContadorSelecionados();
+        }
+
+        function limparSelecaoProdutos() {
+            produtosNota.forEach(produto => {
+                produto.selecionado = false;
+                const checkbox = document.getElementById(`prod-check-${produto.id}`);
+                if (checkbox) checkbox.checked = false;
+            });
+            atualizarContadorSelecionados();
+        }
+
+        function atualizarContadorSelecionados() {
+            const selecionados = produtosNota.filter(p => p.selecionado).length;
+            document.getElementById('produtosSelecionados').textContent = selecionados;
+        }
+
+        function editarProdutoNota(id) {
+            const produto = produtosNota.find(p => p.id == id);
+            if (produto) {
+                produto.editando = true;
+                exibirProdutosNotaAprimorado();
+            }
+        }
+
+        function salvarEdicaoProdutoNota(id) {
+            const produto = produtosNota.find(p => p.id == id);
+            if (produto) {
+                produto.codigo = document.getElementById(`edit-codigo-${id}`).value;
+                produto.nome = document.getElementById(`edit-nome-${id}`).value;
+                produto.quantidade = parseInt(document.getElementById(`edit-qtd-${id}`).value);
+                produto.valor = parseFloat(document.getElementById(`edit-valor-${id}`).value);
+                produto.valorTotal = produto.quantidade * produto.valor;
+                produto.ca = produto.codigo;
+                produto.editando = false;
+                produto.status = 'editado';
+                
+                exibirProdutosNotaAprimorado();
+            }
+        }
+
+        function cancelarEdicaoProdutoNota(id) {
+            const produto = produtosNota.find(p => p.id == id);
+            if (produto) {
+                produto.editando = false;
+                exibirProdutosNotaAprimorado();
+            }
+        }
+
+        function excluirProdutoNota(id) {
+            if (confirm('Tem certeza que deseja excluir este produto da lista?')) {
+                produtosNota = produtosNota.filter(p => p.id != id);
+                exibirProdutosNotaAprimorado();
+            }
+        }
+
+        function mudarAbaNota(aba) {
+            document.querySelectorAll('.nota-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nota-content').forEach(c => c.classList.remove('active'));
+            
+            if (aba === 'produtos') {
+                document.querySelectorAll('.nota-tab')[0].classList.add('active');
+                document.getElementById('aba-produtos').classList.add('active');
+            } else {
+                document.querySelectorAll('.nota-tab')[1].classList.add('active');
+                document.getElementById('aba-raw').classList.add('active');
+            }
+        }
+
+        // ==================== FUNÇÃO PARA IMPORTAR PRODUTOS SELECIONADOS ====================
+        function importarProdutosSelecionados() {
+            const produtosSelecionados = produtosNota.filter(p => p.selecionado);
+            
+            if (produtosSelecionados.length === 0) {
+                alert('Selecione pelo menos um produto para importar!');
+                return;
+            }
+            
+            let importados = 0;
+            let atualizados = 0;
+            
+            produtosSelecionados.forEach(produto => {
+                // Verificar se produto já existe (por código ou nome similar)
+                const existente = epis.find(e => 
+                    e.ca === produto.codigo || 
+                    e.nome.toLowerCase() === produto.nome.toLowerCase()
+                );
+                
+                if (existente) {
+                    // Atualizar quantidade do existente
+                    existente.quantidade += produto.quantidade;
+                    atualizados++;
+                } else {
+                    // Adicionar novo produto
+                    epis.push({
+                        id: Date.now() + importados,
+                        nome: produto.nome,
+                        ca: produto.codigo,
+                        quantidade: produto.quantidade,
+                        valor: produto.valor,
+                        fornecedor: produto.fornecedor || infoNotaAtual.fornecedor || 'Fornecedor não identificado',
+                        dataCadastro: new Date().toISOString(),
+                        origem: `Importação de ${infoNotaAtual.arquivo || 'Nota Fiscal'}`
+                    });
+                    importados++;
+                }
+            });
+
+            // Salvar no localStorage
+            localStorage.setItem('msb_epis', JSON.stringify(epis));
+            
+            // Registrar importação
+            importacoes.push({
+                id: Date.now(),
+                data: new Date().toISOString(),
+                fornecedor: infoNotaAtual.fornecedor || 'Não identificado',
+                produtos: produtosSelecionados.length,
+                importados: importados,
+                atualizados: atualizados,
+                total: infoNotaAtual.total,
+                arquivo: infoNotaAtual.arquivo,
+                tipo: 'Importação de Nota'
+            });
+            localStorage.setItem('msb_importacoes', JSON.stringify(importacoes));
+
+            // Limpar a área de importação
+            document.getElementById('produtosNota')?.classList.add('hidden');
+            document.getElementById('infoNota')?.classList.add('hidden');
+            document.getElementById('fileInput').value = '';
+            
+            // Atualizar interface
+            carregarSelects();
+            atualizarDashboard();
+            carregarBaseDados();
+            
+            alert(`✅ Importação concluída!\n📦 Produtos importados: ${importados}\n🔄 Produtos atualizados: ${atualizados}\n📋 Total de itens: ${produtosSelecionados.length}`);
+        }
+
+        // ==================== FALLBACKS MANUAIS ====================
+        function aplicarFormatoXML() {
+            alert('Selecione um arquivo XML válido');
+        }
+
+        function aplicarFormatoCSV() {
+            alert('Selecione um arquivo CSV válido');
+        }
+
+        function aplicarFormatoTXT() {
+            alert('Selecione um arquivo TXT válido');
+        }
+
+        function aplicarFormatoDANFE() {
+            alert('Selecione um arquivo TXT no formato DANFE');
+        }
+
+        function aplicarFormatoVINI() {
+            alert('Selecione um arquivo TXT no formato VINI EPI');
+        }
+
+        // ==================== FUNÇÕES DE EDIÇÃO E EXCLUSÃO ====================
+        function abrirModalEditarEPI(id) {
+            const epi = epis.find(e => e.id == id);
+            if (!epi) return;
+            
+            document.getElementById('editIdEPI').value = epi.id;
+            document.getElementById('editNomeEPI').value = epi.nome;
+            document.getElementById('editCaEPI').value = epi.ca;
+            document.getElementById('editQtdEPI').value = epi.quantidade;
+            document.getElementById('editValorEPI').value = epi.valor || 0;
+            document.getElementById('editFornecedorEPI').value = epi.fornecedor || '';
+            
+            document.getElementById('modalEditarEPI').style.display = 'block';
+        }
+
+        function fecharModalEditar() {
+            document.getElementById('modalEditarEPI').style.display = 'none';
+        }
+
+        function salvarEdicaoEPI() {
+            const id = parseInt(document.getElementById('editIdEPI').value);
+            const epi = epis.find(e => e.id == id);
+            
+            if (!epi) return;
+            
+            epi.nome = document.getElementById('editNomeEPI').value;
+            epi.ca = document.getElementById('editCaEPI').value;
+            epi.quantidade = parseInt(document.getElementById('editQtdEPI').value);
+            epi.valor = parseFloat(document.getElementById('editValorEPI').value) || 0;
+            epi.fornecedor = document.getElementById('editFornecedorEPI').value;
+            
+            localStorage.setItem('msb_epis', JSON.stringify(epis));
+            
+            fecharModalEditar();
+            carregarBaseDados();
+            atualizarDashboard();
+            carregarSelects();
+            
+            alert('EPI atualizado com sucesso!');
+        }
+
+        function excluirEPI(id) {
+            if (confirm('Tem certeza que deseja excluir este EPI? Esta ação não pode ser desfeita.')) {
+                epis = epis.filter(e => e.id != id);
+                localStorage.setItem('msb_epis', JSON.stringify(epis));
+                
+                carregarBaseDados();
+                atualizarDashboard();
+                carregarSelects();
+                
+                alert('EPI excluído com sucesso!');
+            }
+        }
+
+        function abrirModalEditarFuncionario(id) {
+            const funcionario = funcionarios.find(f => f.id == id);
+            if (!funcionario) return;
+            
+            document.getElementById('editIdFuncionario').value = funcionario.id;
+            document.getElementById('editNomeFuncionario').value = funcionario.nome;
+            document.getElementById('editCpfFuncionario').value = funcionario.cpf;
+            document.getElementById('editFuncaoFuncionario').value = funcionario.funcao;
+            
+            document.getElementById('modalEditarFuncionario').style.display = 'block';
+            
+            $('#editCpfFuncionario').mask('000.000.000-00');
+        }
+
+        function fecharModalEditarFuncionario() {
+            document.getElementById('modalEditarFuncionario').style.display = 'none';
+        }
+
+        function salvarEdicaoFuncionario() {
+            const id = parseInt(document.getElementById('editIdFuncionario').value);
+            const funcionario = funcionarios.find(f => f.id == id);
+            
+            if (!funcionario) return;
+            
+            funcionario.nome = document.getElementById('editNomeFuncionario').value;
+            funcionario.cpf = document.getElementById('editCpfFuncionario').value;
+            funcionario.funcao = document.getElementById('editFuncaoFuncionario').value;
+            
+            localStorage.setItem('msb_funcionarios', JSON.stringify(funcionarios));
+            
+            fecharModalEditarFuncionario();
+            carregarBaseDados();
+            carregarSelects();
+            
+            alert('Funcionário atualizado com sucesso!');
+        }
+
+        function excluirFuncionario(id) {
+            if (confirm('Tem certeza que deseja excluir este funcionário? Esta ação não pode ser desfeita.')) {
+                funcionarios = funcionarios.filter(f => f.id != id);
+                localStorage.setItem('msb_funcionarios', JSON.stringify(funcionarios));
+                
+                carregarBaseDados();
+                carregarSelects();
+                
+                alert('Funcionário excluído com sucesso!');
+            }
+        }
+
+        function excluirEntrega(id) {
+            if (confirm('Tem certeza que deseja excluir este registro de entrega? Esta ação não pode ser desfeita.')) {
+                entregas = entregas.filter(e => e.id != id);
+                localStorage.setItem('msb_entregas', JSON.stringify(entregas));
+                
+                carregarBaseDados();
+                alert('Registro de entrega excluído com sucesso!');
+            }
+        }
+
+        function excluirImportacao(id) {
+            if (confirm('Tem certeza que deseja excluir este registro de importação?')) {
+                importacoes = importacoes.filter(i => i.id != id);
+                localStorage.setItem('msb_importacoes', JSON.stringify(importacoes));
+                
+                carregarBaseDados();
+                alert('Registro de importação excluído com sucesso!');
+            }
+        }
+
+        // ==================== FUNÇÕES PARA MÚLTIPLOS EPIs ====================
+        function adicionarItemEPI() {
+            contadorItensEPI++;
+            const container = document.getElementById('episList');
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'epi-item';
+            itemDiv.id = `epi-item-${contadorItensEPI}`;
+            
+            let selectEPIOptions = '<option value="">Selecione o EPI</option>';
+            epis.forEach(epi => {
+                selectEPIOptions += `<option value="${epi.id}">${epi.nome} - CA: ${epi.ca} (Estoque: ${epi.quantidade})</option>`;
+            });
+            
+            itemDiv.innerHTML = `
+                <select id="epi-select-${contadorItensEPI}" class="form-control" onchange="atualizarResumoEntregas()">
+                    ${selectEPIOptions}
+                </select>
+                <input type="number" id="epi-qtd-${contadorItensEPI}" class="form-control" min="1" value="1" onchange="atualizarResumoEntregas()">
+                <input type="text" id="epi-obs-${contadorItensEPI}" class="form-control" placeholder="Obs. do item" onchange="atualizarResumoEntregas()">
+                <button class="btn-remove" onclick="removerItemEPI(${contadorItensEPI})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+            
+            container.appendChild(itemDiv);
+            atualizarResumoEntregas();
+        }
+
+        function removerItemEPI(id) {
+            const item = document.getElementById(`epi-item-${id}`);
+            if (item) {
+                item.remove();
+                atualizarResumoEntregas();
+            }
+        }
+
+        function atualizarResumoEntregas() {
+            const funcionarioId = document.getElementById('selectFuncionario').value;
+            const funcionario = funcionarios.find(f => f.id == funcionarioId);
+            
+            const itens = [];
+            let temErro = false;
+            
+            for (let i = 1; i <= contadorItensEPI; i++) {
+                const item = document.getElementById(`epi-item-${i}`);
+                if (item) {
+                    const select = document.getElementById(`epi-select-${i}`);
+                    const qtdInput = document.getElementById(`epi-qtd-${i}`);
+                    
+                    if (select && select.value && qtdInput && qtdInput.value) {
+                        const epiId = select.value;
+                        const quantidade = parseInt(qtdInput.value);
+                        const epi = epis.find(e => e.id == epiId);
+                        
+                        if (epi) {
+                            itens.push({
+                                epiId,
+                                epiNome: epi.nome,
+                                ca: epi.ca,
+                                quantidade,
+                                estoqueAtual: epi.quantidade,
+                                obs: document.getElementById(`epi-obs-${i}`)?.value || ''
+                            });
+                            
+                            if (quantidade > epi.quantidade) {
+                                temErro = true;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            const resumoDiv = document.getElementById('resumoEntregas');
+            const btnRegistrar = document.getElementById('btnRegistrarMultiplo');
+            
+            if (funcionario && itens.length > 0) {
+                resumoDiv.classList.remove('hidden');
+                document.getElementById('resumoFuncionario').innerHTML = 
+                    `<strong>Funcionário:</strong> ${funcionario.nome} - ${funcionario.funcao}`;
+                
+                document.getElementById('resumoItens').innerHTML = 
+                    `<strong>Total de itens:</strong> ${itens.length}`;
+                
+                let listaItensHTML = '<ul style="margin-top: 10px;">';
+                itens.forEach(item => {
+                    const status = item.quantidade > item.estoqueAtual ? 
+                        '<span style="color: #dc3545;">(Estoque insuficiente!)</span>' : 
+                        '<span style="color: #28a745;">(OK)</span>';
+                    
+                    listaItensHTML += `<li>
+                        <strong>${item.epiNome}</strong> - CA: ${item.ca} - 
+                        Quantidade: ${item.quantidade} ${status}
+                        ${item.obs ? `<br><small>Obs: ${item.obs}</small>` : ''}
+                    </li>`;
+                });
+                listaItensHTML += '</ul>';
+                
+                document.getElementById('resumoListaItens').innerHTML = listaItensHTML;
+                
+                btnRegistrar.disabled = temErro;
+                btnRegistrar.style.opacity = temErro ? '0.5' : '1';
+                btnRegistrar.title = temErro ? 'Corrija os itens com estoque insuficiente' : '';
+            } else {
+                resumoDiv.classList.add('hidden');
+            }
+        }
+
+        function registrarEntregaMultipla() {
+            if (!assinaturaDataURL) {
+                alert('É necessário salvar a assinatura primeiro!');
+                return;
+            }
+
+            const funcionarioId = document.getElementById('selectFuncionario').value;
+            const observacaoGeral = document.getElementById('obsEntrega').value;
+
+            if (!funcionarioId) {
+                alert('Selecione um funcionário!');
+                return;
+            }
+
+            const funcionario = funcionarios.find(f => f.id == funcionarioId);
+            if (!funcionario) {
+                alert('Funcionário não encontrado!');
+                return;
+            }
+
+            const itensEntrega = [];
+            let temErro = false;
+
+            for (let i = 1; i <= contadorItensEPI; i++) {
+                const item = document.getElementById(`epi-item-${i}`);
+                if (item) {
+                    const select = document.getElementById(`epi-select-${i}`);
+                    const qtdInput = document.getElementById(`epi-qtd-${i}`);
+                    
+                    if (select && select.value && qtdInput && qtdInput.value) {
+                        const epiId = select.value;
+                        const quantidade = parseInt(qtdInput.value);
+                        const epi = epis.find(e => e.id == epiId);
+                        
+                        if (epi) {
+                            if (quantidade > epi.quantidade) {
+                                alert(`Estoque insuficiente para ${epi.nome}! Disponível: ${epi.quantidade}`);
+                                temErro = true;
+                                break;
+                            }
+                            
+                            itensEntrega.push({
+                                epiId,
+                                epiNome: epi.nome,
+                                ca: epi.ca,
+                                quantidade,
+                                observacaoItem: document.getElementById(`epi-obs-${i}`)?.value || ''
+                            });
+                        }
+                    }
+                }
+            }
+
+            if (temErro) return;
+
+            if (itensEntrega.length === 0) {
+                alert('Adicione pelo menos um EPI para entrega!');
+                return;
+            }
+
+            itensEntrega.forEach(item => {
+                const epi = epis.find(e => e.id == item.epiId);
+                if (epi) {
+                    epi.quantidade -= item.quantidade;
+                }
+            });
+            localStorage.setItem('msb_epis', JSON.stringify(epis));
+
+            const entrega = {
+                id: Date.now(),
+                funcionarioId,
+                funcionarioNome: funcionario.nome,
+                funcao: funcionario.funcao,
+                data: new Date().toISOString(),
+                observacaoGeral,
+                assinatura: assinaturaDataURL,
+                itens: itensEntrega,
+                tipo: 'Entrega Múltipla'
+            };
+
+            entregas.push(entrega);
+            localStorage.setItem('msb_entregas', JSON.stringify(entregas));
+
+            limparAssinatura();
+            document.getElementById('obsEntrega').value = '';
+            document.getElementById('episList').innerHTML = '';
+            contadorItensEPI = 0;
+            adicionarItemEPI();
+            
+            carregarSelects();
+            atualizarDashboard();
+            atualizarResumoEntregas();
+            
+            alert(`Entrega registrada com sucesso! Total de ${itensEntrega.length} itens entregues.`);
+        }
+
+        // ==================== FUNÇÕES AUXILIARES ====================
+        function carregarSelects() {
+            const selectFunc = document.getElementById('selectFuncionario');
+            
+            if (selectFunc) {
+                selectFunc.innerHTML = '<option value="">Selecione...</option>';
+                funcionarios.forEach(func => {
+                    selectFunc.innerHTML += `<option value="${func.id}">${func.nome} - ${func.funcao}</option>`;
+                });
+            }
+
+            for (let i = 1; i <= contadorItensEPI; i++) {
+                const select = document.getElementById(`epi-select-${i}`);
+                if (select) {
+                    let options = '<option value="">Selecione o EPI</option>';
+                    epis.forEach(epi => {
+                        options += `<option value="${epi.id}" ${select.value == epi.id ? 'selected' : ''}>${epi.nome} - CA: ${epi.ca} (Estoque: ${epi.quantidade})</option>`;
+                    });
+                    select.innerHTML = options;
+                }
+            }
+        }
+
+        function atualizarDashboard() {
+            const totalItens = epis.reduce((acc, e) => acc + e.quantidade, 0);
+            document.getElementById('totalEPIs').textContent = totalItens;
+            document.getElementById('tiposEPI').textContent = epis.length;
+            document.getElementById('totalFuncionarios').textContent = funcionarios.length;
+            
+            const estoqueBaixo = epis.filter(e => e.quantidade < 5).length;
+            document.getElementById('estoqueBaixo').textContent = estoqueBaixo;
+        }
+
+        // ==================== RELATÓRIOS ====================
+        function carregarFuncionariosFiltro() {
+            const select = document.getElementById('filtroFuncionario');
+            select.innerHTML = '<option value="">Selecione funcionário</option>';
+            funcionarios.forEach(f => {
+                select.innerHTML += `<option value="${f.id}">${f.nome}</option>`;
+            });
+        }
+
+        document.getElementById('filtroRelatorio').addEventListener('change', function() {
+            const selectFunc = document.getElementById('filtroFuncionario');
+            selectFunc.style.display = this.value === 'funcionario' ? 'block' : 'none';
+        });
+
+        function gerarRelatorio() {
+            const tipo = document.getElementById('filtroRelatorio').value;
+            const dataInicio = document.getElementById('filtroDataInicio').value;
+            const dataFim = document.getElementById('filtroDataFim').value;
+            const funcionarioId = document.getElementById('filtroFuncionario').value;
+
+            let html = '';
+            
+            switch(tipo) {
+                case 'estoque':
+                    html = gerarRelatorioEstoque();
+                    break;
+                case 'entregas':
+                    html = gerarRelatorioEntregas(dataInicio, dataFim);
+                    break;
+                case 'funcionario':
+                    html = gerarRelatorioFuncionario(funcionarioId, dataInicio, dataFim);
+                    break;
+            }
+
+            document.getElementById('relatorioResultado').innerHTML = html;
+        }
+
+        function gerarRelatorioEstoque() {
+            let html = '<table><tr><th>EPI</th><th>Código/CA</th><th>Quantidade</th><th>Valor Unit.</th><th>Total</th><th>Fornecedor</th><th>Status</th></tr>';
+            
+            epis.forEach(epi => {
+                const total = (epi.quantidade * (epi.valor || 0)).toFixed(2);
+                const status = epi.quantidade < 5 ? 'Baixo' : epi.quantidade < 10 ? 'Médio' : 'Bom';
+                const statusClass = epi.quantidade < 5 ? 'badge-danger' : epi.quantidade < 10 ? 'badge-warning' : 'badge-success';
+                
+                html += `<tr>
+                    <td>${epi.nome}</td>
+                    <td>${epi.ca}</td>
+                    <td>${epi.quantidade}</td>
+                    <td>R$ ${(epi.valor || 0).toFixed(2)}</td>
+                    <td>R$ ${total}</td>
+                    <td>${epi.fornecedor || '-'}</td>
+                    <td><span class="${statusClass}">${status}</span></td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarRelatorioEntregas(dataInicio, dataFim) {
+            let entregasFiltradas = [...entregas];
+            
+            if (dataInicio) {
+                entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] >= dataInicio);
+            }
+            if (dataFim) {
+                entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] <= dataFim);
+            }
+
+            let html = '<table><tr><th>Data</th><th>Funcionário</th><th>Função</th><th>Itens</th><th>Assinatura</th></tr>';
+            
+            entregasFiltradas.sort((a, b) => new Date(b.data) - new Date(a.data)).forEach(e => {
+                const data = new Date(e.data).toLocaleDateString('pt-BR');
+                const assinaturaHTML = e.assinatura 
+                    ? `<img src="${e.assinatura}" class="assinatura-img" style="height: 30px;">` 
+                    : '---';
+                
+                let itensHTML = '';
+                if (e.itens && e.itens.length > 0) {
+                    itensHTML = '<ul style="margin: 0; padding-left: 20px;">';
+                    e.itens.forEach(item => {
+                        itensHTML += `<li>${item.epiNome} - ${item.quantidade} un</li>`;
+                    });
+                    itensHTML += '</ul>';
+                } else {
+                    itensHTML = `${e.epiNome || 'EPI'} - ${e.quantidade || 0} un`;
+                }
+                
+                html += `<tr>
+                    <td>${data}</td>
+                    <td>${e.funcionarioNome}</td>
+                    <td>${e.funcao}</td>
+                    <td>${itensHTML}</td>
+                    <td>${assinaturaHTML}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarRelatorioFuncionario(funcionarioId, dataInicio, dataFim) {
+            if (!funcionarioId) return '<p>Selecione um funcionário</p>';
+
+            let entregasFiltradas = entregas.filter(e => e.funcionarioId == funcionarioId);
+            
+            if (dataInicio) {
+                entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] >= dataInicio);
+            }
+            if (dataFim) {
+                entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] <= dataFim);
+            }
+
+            const funcionario = funcionarios.find(f => f.id == funcionarioId);
+            
+            let html = `<div class="relatorio-card">
+                <h4>${funcionario.nome} - ${funcionario.funcao}</h4>
+                <p>CPF: ${funcionario.cpf} | Total de entregas: ${entregasFiltradas.length}</p>
+            </div>`;
+
+            html += '<table><tr><th>Data</th><th>Itens Entregues</th><th>Assinatura</th></tr>';
+            
+            entregasFiltradas.sort((a, b) => new Date(b.data) - new Date(a.data)).forEach(e => {
+                const data = new Date(e.data).toLocaleDateString('pt-BR');
+                const assinaturaHTML = e.assinatura 
+                    ? `<img src="${e.assinatura}" class="assinatura-img" style="height: 30px;">` 
+                    : '---';
+                
+                let itensHTML = '';
+                if (e.itens && e.itens.length > 0) {
+                    itensHTML = '<ul style="margin: 0; padding-left: 20px;">';
+                    e.itens.forEach(item => {
+                        itensHTML += `<li>${item.epiNome} - ${item.quantidade} un</li>`;
+                    });
+                    itensHTML += '</ul>';
+                } else {
+                    itensHTML = `${e.epiNome || 'EPI'} - ${e.quantidade || 0} un`;
+                }
+                
+                html += `<tr>
+                    <td>${data}</td>
+                    <td>${itensHTML}</td>
+                    <td>${assinaturaHTML}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        // ==================== BASE DE DADOS ====================
+        function carregarBaseDados() {
+            const tipo = document.getElementById('seletorBase').value;
+            const container = document.getElementById('baseResultado');
+            
+            let html = '';
+            
+            switch(tipo) {
+                case 'estoque':
+                    html = gerarBaseEstoque();
+                    break;
+                case 'estoque_resumo':
+                    html = gerarResumoEstoque();
+                    break;
+                case 'estoque_baixo':
+                    html = gerarEstoqueBaixo();
+                    break;
+                case 'estoque_fornecedor':
+                    html = gerarEstoquePorFornecedor();
+                    break;
+                case 'funcionarios':
+                    html = gerarBaseFuncionarios();
+                    break;
+                case 'entregas':
+                    html = gerarBaseEntregas();
+                    break;
+                case 'importacoes':
+                    html = gerarBaseImportacoes();
+                    break;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function gerarBaseEstoque() {
+            let html = '<h4 style="color: #1F3A5F; margin-bottom: 15px;">Estoque Completo</h4>';
+            html += '<table><tr><th>ID</th><th>EPI</th><th>Código/CA</th><th>Qtd</th><th>Valor Unit.</th><th>Valor Total</th><th>Fornecedor</th><th>Status</th><th>Data Cadastro</th><th>Ações</th></tr>';
+            
+            epis.sort((a, b) => a.quantidade - b.quantidade).forEach(e => {
+                const data = new Date(e.dataCadastro).toLocaleDateString('pt-BR');
+                const total = (e.quantidade * (e.valor || 0)).toFixed(2);
+                const statusClass = e.quantidade < 5 ? 'badge-danger' : e.quantidade < 10 ? 'badge-warning' : 'badge-success';
+                const status = e.quantidade < 5 ? 'Crítico' : e.quantidade < 10 ? 'Atenção' : 'Normal';
+                
+                html += `<tr ${e.quantidade < 5 ? 'class="estoque-baixo"' : ''}>
+                    <td>${e.id}</td>
+                    <td>${e.nome}</td>
+                    <td>${e.ca}</td>
+                    <td><strong>${e.quantidade}</strong></td>
+                    <td>R$ ${(e.valor || 0).toFixed(2)}</td>
+                    <td>R$ ${total}</td>
+                    <td>${e.fornecedor || '-'}</td>
+                    <td><span class="${statusClass}">${status}</span></td>
+                    <td>${data}</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="abrirModalEditarEPI(${e.id})" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="excluirEPI(${e.id})" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarResumoEstoque() {
+            const totalItens = epis.reduce((acc, e) => acc + e.quantidade, 0);
+            const valorTotal = epis.reduce((acc, e) => acc + (e.quantidade * (e.valor || 0)), 0);
+            const estoqueBaixo = epis.filter(e => e.quantidade < 5).length;
+            const estoqueMedio = epis.filter(e => e.quantidade >= 5 && e.quantidade < 10).length;
+            const estoqueBom = epis.filter(e => e.quantidade >= 10).length;
+
+            let html = `
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px;">
+                    <div style="background: #1F3A5F; color: white; padding: 15px; border-radius: 8px;">
+                        <h4>Total em Estoque</h4>
+                        <h2>${totalItens} itens</h2>
+                    </div>
+                    <div style="background: #28a745; color: white; padding: 15px; border-radius: 8px;">
+                        <h4>Valor Total</h4>
+                        <h2>R$ ${valorTotal.toFixed(2)}</h2>
+                    </div>
+                    <div style="background: #ffc107; color: #1F3A5F; padding: 15px; border-radius: 8px;">
+                        <h4>Tipos de EPI</h4>
+                        <h2>${epis.length}</h2>
+                    </div>
+                    <div style="background: #dc3545; color: white; padding: 15px; border-radius: 8px;">
+                        <h4>Estoque Baixo</h4>
+                        <h2>${estoqueBaixo}</h2>
+                    </div>
+                </div>
+            `;
+
+            html += '<table><tr><th>Categoria</th><th>Quantidade de Itens</th><th>Quantidade de Tipos</th></tr>';
+            html += `<tr><td>Estoque Crítico (&lt;5)</td><td>${estoqueBaixo}</td><td>${epis.filter(e => e.quantidade < 5).length}</td></tr>`;
+            html += `<tr><td>Estoque Médio (5-10)</td><td>${estoqueMedio}</td><td>${epis.filter(e => e.quantidade >= 5 && e.quantidade < 10).length}</td></tr>`;
+            html += `<tr><td>Estoque Bom (&gt;10)</td><td>${estoqueBom}</td><td>${epis.filter(e => e.quantidade >= 10).length}</td></tr>`;
+            html += '</table>';
+
+            return html;
+        }
+
+        function gerarEstoqueBaixo() {
+            let html = '<h4 style="color: #dc3545; margin-bottom: 15px;">Itens com Estoque Baixo (menos de 5 unidades)</h4>';
+            html += '<table><tr><th>EPI</th><th>Código/CA</th><th>Quantidade Atual</th><th>Fornecedor</th><th>Ação Recomendada</th></tr>';
+            
+            epis.filter(e => e.quantidade < 5).forEach(e => {
+                html += `<tr>
+                    <td><strong>${e.nome}</strong></td>
+                    <td>${e.ca}</td>
+                    <td style="color: #dc3545; font-weight: bold;">${e.quantidade}</td>
+                    <td>${e.fornecedor || '-'}</td>
+                    <td><span class="badge-danger">Comprar urgente</span></td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarEstoquePorFornecedor() {
+            const fornecedores = {};
+            epis.forEach(e => {
+                const forn = e.fornecedor || 'Não informado';
+                if (!fornecedores[forn]) {
+                    fornecedores[forn] = {
+                        itens: 0,
+                        quantidade: 0,
+                        valorTotal: 0
+                    };
+                }
+                fornecedores[forn].itens++;
+                fornecedores[forn].quantidade += e.quantidade;
+                fornecedores[forn].valorTotal += e.quantidade * (e.valor || 0);
+            });
+
+            let html = '<table><tr><th>Fornecedor</th><th>Tipos de EPI</th><th>Quantidade Total</th><th>Valor Total em Estoque</th></tr>';
+            
+            Object.keys(fornecedores).sort().forEach(forn => {
+                html += `<tr>
+                    <td><strong>${forn}</strong></td>
+                    <td>${fornecedores[forn].itens}</td>
+                    <td>${fornecedores[forn].quantidade}</td>
+                    <td>R$ ${fornecedores[forn].valorTotal.toFixed(2)}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarBaseFuncionarios() {
+            let html = '<h4 style="color: #1F3A5F; margin-bottom: 15px;">Funcionários Cadastrados</h4>';
+            html += '<table><tr><th>ID</th><th>Nome</th><th>CPF</th><th>Função</th><th>Data Cadastro</th><th>Ações</th></tr>';
+            
+            funcionarios.forEach(f => {
+                const data = new Date(f.dataCadastro).toLocaleDateString('pt-BR');
+                html += `<tr>
+                    <td>${f.id}</td>
+                    <td>${f.nome}</td>
+                    <td>${f.cpf}</td>
+                    <td>${f.funcao}</td>
+                    <td>${data}</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-primary btn-sm" onclick="abrirModalEditarFuncionario(${f.id})" title="Editar">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="excluirFuncionario(${f.id})" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarBaseEntregas() {
+            let html = '<h4 style="color: #1F3A5F; margin-bottom: 15px;">Entregas Realizadas</h4>';
+            html += '<table><tr><th>ID</th><th>Data</th><th>Funcionário</th><th>Itens</th><th>Assinatura</th><th>Ações</th></tr>';
+            
+            entregas.sort((a, b) => new Date(b.data) - new Date(a.data)).forEach(e => {
+                const data = new Date(e.data).toLocaleDateString('pt-BR');
+                const assinatura = e.assinatura ? 'Sim' : 'Não';
+                
+                let itensHTML = '';
+                if (e.itens && e.itens.length > 0) {
+                    itensHTML = `<ul style="margin: 0; padding-left: 20px;">`;
+                    e.itens.forEach(item => {
+                        itensHTML += `<li>${item.epiNome} - ${item.quantidade} un</li>`;
+                    });
+                    itensHTML += `</ul>`;
+                } else {
+                    itensHTML = `${e.epiNome || 'EPI'} - ${e.quantidade || 0} un`;
+                }
+                
+                html += `<tr>
+                    <td>${e.id}</td>
+                    <td>${data}</td>
+                    <td>${e.funcionarioNome}</td>
+                    <td>${itensHTML}</td>
+                    <td>${assinatura}</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-danger btn-sm" onclick="excluirEntrega(${e.id})" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        function gerarBaseImportacoes() {
+            let html = '<h4 style="color: #1F3A5F; margin-bottom: 15px;">Importações de Notas</h4>';
+            html += '<table><tr><th>ID</th><th>Data</th><th>Arquivo</th><th>Fornecedor</th><th>Produtos</th><th>Total</th><th>Ações</th></tr>';
+            
+            importacoes.sort((a, b) => new Date(b.data) - new Date(a.data)).forEach(i => {
+                const data = new Date(i.data).toLocaleDateString('pt-BR');
+                html += `<tr>
+                    <td>${i.id}</td>
+                    <td>${data}</td>
+                    <td>${i.arquivo || '-'}</td>
+                    <td>${i.fornecedor || '-'}</td>
+                    <td>${i.produtos}</td>
+                    <td>R$ ${(i.total || 0).toFixed(2)}</td>
+                    <td class="action-buttons">
+                        <button class="btn btn-danger btn-sm" onclick="excluirImportacao(${i.id})" title="Excluir">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            return html;
+        }
+
+        // ==================== EXPORTAÇÕES ====================
+        function exportarBaseExcel() {
+            const wb = XLSX.utils.book_new();
+            
+            // Aba Resumo do Estoque
+            const resumoData = [{
+                'Total de Itens': epis.reduce((acc, e) => acc + e.quantidade, 0),
+                'Valor Total': epis.reduce((acc, e) => acc + (e.quantidade * (e.valor || 0)), 0),
+                'Tipos de EPI': epis.length,
+                'Estoque Baixo': epis.filter(e => e.quantidade < 5).length
+            }];
+            let ws = XLSX.utils.json_to_sheet(resumoData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Resumo');
+
+            // Aba Estoque Completo
+            const epiData = epis.map(e => ({
+                ID: e.id,
+                EPI: e.nome,
+                'Código/CA': e.ca,
+                Quantidade: e.quantidade,
+                'Valor Unit.': e.valor || 0,
+                'Valor Total': (e.quantidade * (e.valor || 0)).toFixed(2),
+                Fornecedor: e.fornecedor || '-',
+                Status: e.quantidade < 5 ? 'Crítico' : e.quantidade < 10 ? 'Atenção' : 'Normal',
+                'Data Cadastro': new Date(e.dataCadastro).toLocaleDateString('pt-BR')
+            }));
+            ws = XLSX.utils.json_to_sheet(epiData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Estoque');
+
+            // Aba Funcionários
+            const funcData = funcionarios.map(f => ({
+                ID: f.id,
+                Nome: f.nome,
+                CPF: f.cpf,
+                Função: f.funcao,
+                'Data Cadastro': new Date(f.dataCadastro).toLocaleDateString('pt-BR')
+            }));
+            ws = XLSX.utils.json_to_sheet(funcData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Funcionários');
+
+            // Aba Entregas
+            const entregaData = entregas.map(e => ({
+                ID: e.id,
+                Data: new Date(e.data).toLocaleDateString('pt-BR'),
+                Funcionário: e.funcionarioNome,
+                'Qtd Itens': e.itens ? e.itens.length : 1,
+                'Possui Assinatura': e.assinatura ? 'Sim' : 'Não'
+            }));
+            ws = XLSX.utils.json_to_sheet(entregaData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Entregas');
+
+            // Aba Importações
+            const importData = importacoes.map(i => ({
+                ID: i.id,
+                Data: new Date(i.data).toLocaleDateString('pt-BR'),
+                Arquivo: i.arquivo || '-',
+                Fornecedor: i.fornecedor || '-',
+                Produtos: i.produtos,
+                Total: i.total || 0
+            }));
+            ws = XLSX.utils.json_to_sheet(importData);
+            XLSX.utils.book_append_sheet(wb, ws, 'Importações');
+
+            XLSX.writeFile(wb, `Base_Dados_MSB_${new Date().getTime()}.xlsx`);
+        }
+
+        function exportarRelatorioExcel() {
+            const tipo = document.getElementById('filtroRelatorio').value;
+            const dataInicio = document.getElementById('filtroDataInicio').value;
+            const dataFim = document.getElementById('filtroDataFim').value;
+            const funcionarioId = document.getElementById('filtroFuncionario').value;
+
+            let dados = [];
+            
+            if (tipo === 'estoque') {
+                dados = epis.map(e => ({
+                    EPI: e.nome,
+                    'Código/CA': e.ca,
+                    Quantidade: e.quantidade,
+                    'Valor Unit.': e.valor || 0,
+                    Total: (e.quantidade * (e.valor || 0)).toFixed(2),
+                    Fornecedor: e.fornecedor || '-',
+                    Status: e.quantidade < 5 ? 'Baixo' : e.quantidade < 10 ? 'Médio' : 'Bom'
+                }));
+            } else if (tipo === 'entregas') {
+                let entregasFiltradas = [...entregas];
+                if (dataInicio) entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] >= dataInicio);
+                if (dataFim) entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] <= dataFim);
+                
+                entregasFiltradas.forEach(e => {
+                    if (e.itens && e.itens.length > 0) {
+                        e.itens.forEach(item => {
+                            dados.push({
+                                Data: new Date(e.data).toLocaleDateString('pt-BR'),
+                                Funcionário: e.funcionarioNome,
+                                Função: e.funcao,
+                                EPI: item.epiNome,
+                                CA: item.ca,
+                                Quantidade: item.quantidade,
+                                'Obs. Item': item.observacaoItem || '',
+                                'Obs. Geral': e.observacaoGeral || '',
+                                'Possui Assinatura': e.assinatura ? 'Sim' : 'Não'
+                            });
+                        });
+                    } else {
+                        dados.push({
+                            Data: new Date(e.data).toLocaleDateString('pt-BR'),
+                            Funcionário: e.funcionarioNome,
+                            Função: e.funcao,
+                            EPI: e.epiNome || 'N/A',
+                            CA: e.ca || 'N/A',
+                            Quantidade: e.quantidade || 0,
+                            'Obs. Geral': e.observacao || '',
+                            'Possui Assinatura': e.assinatura ? 'Sim' : 'Não'
+                        });
+                    }
+                });
+            } else if (tipo === 'funcionario' && funcionarioId) {
+                let entregasFiltradas = entregas.filter(e => e.funcionarioId == funcionarioId);
+                if (dataInicio) entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] >= dataInicio);
+                if (dataFim) entregasFiltradas = entregasFiltradas.filter(e => e.data.split('T')[0] <= dataFim);
+                
+                entregasFiltradas.forEach(e => {
+                    if (e.itens && e.itens.length > 0) {
+                        e.itens.forEach(item => {
+                            dados.push({
+                                Data: new Date(e.data).toLocaleDateString('pt-BR'),
+                                EPI: item.epiNome,
+                                CA: item.ca,
+                                Quantidade: item.quantidade,
+                                'Obs. Item': item.observacaoItem || '',
+                                'Obs. Geral': e.observacaoGeral || '',
+                                'Possui Assinatura': e.assinatura ? 'Sim' : 'Não'
+                            });
+                        });
+                    } else {
+                        dados.push({
+                            Data: new Date(e.data).toLocaleDateString('pt-BR'),
+                            EPI: e.epiNome || 'N/A',
+                            CA: e.ca || 'N/A',
+                            Quantidade: e.quantidade || 0,
+                            'Obs. Geral': e.observacao || '',
+                            'Possui Assinatura': e.assinatura ? 'Sim' : 'Não'
+                        });
+                    }
+                });
+            }
+
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(dados);
+            XLSX.utils.book_append_sheet(wb, ws, 'Relatório');
+            XLSX.writeFile(wb, `Relatorio_${tipo}_${new Date().getTime()}.xlsx`);
+        }
+
+        // ==================== PDF ====================
+        async function gerarRelatorioPDF() {
+            try {
+                const tipo = document.getElementById('filtroRelatorio').value;
+                const dataInicio = document.getElementById('filtroDataInicio').value;
+                const dataFim = document.getElementById('filtroDataFim').value;
+                const funcionarioId = document.getElementById('filtroFuncionario').value;
+
+                let html = '<h3 style="color: #1F3A5F;">Relatório ' + 
+                    (tipo === 'estoque' ? 'de Estoque' : tipo === 'entregas' ? 'de Entregas' : 'por Funcionário') + 
+                    '</h3>';
+
+                if (tipo === 'estoque') {
+                    html += gerarRelatorioEstoque();
+                } else if (tipo === 'entregas') {
+                    html += gerarRelatorioEntregas(dataInicio, dataFim);
+                } else if (tipo === 'funcionario') {
+                    html += gerarRelatorioFuncionario(funcionarioId, dataInicio, dataFim);
+                }
+
+                document.getElementById('pdfConteudo').innerHTML = html;
+                document.getElementById('pdfData').textContent = new Date().toLocaleString('pt-BR');
+
+                const relatorioDiv = document.getElementById('relatorioPDF');
+                relatorioDiv.classList.remove('hidden');
+
+                const { jsPDF } = window.jspdf;
+                const canvas = await html2canvas(relatorioDiv, {
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: '#ffffff'
+                });
+
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgWidth = 210;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                pdf.save(`Relatorio_MSB_${new Date().getTime()}.pdf`);
+
+                relatorioDiv.classList.add('hidden');
+
+            } catch (error) {
+                console.error('Erro ao gerar PDF:', error);
+                alert('Erro ao gerar PDF. Tente novamente.');
+            }
+        }
+
+        // Fechar modais ao clicar fora
+        window.onclick = function(event) {
+            const modalEPI = document.getElementById('modalEditarEPI');
+            const modalFunc = document.getElementById('modalEditarFuncionario');
+            const modalErros = document.getElementById('modalErrosImportacao');
+            
+            if (event.target == modalEPI) {
+                modalEPI.style.display = 'none';
+            }
+            if (event.target == modalFunc) {
+                modalFunc.style.display = 'none';
+            }
+            if (event.target == modalErros) {
+                modalErros.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
