@@ -19,6 +19,8 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="styles.css">
     <!-- jsPDF e html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -27,6 +29,8 @@
     <!-- jQuery Mask para CPF -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- JavaScript da Aplicação -->
+    <script src="app.js"></script>
     
     <style>
         * {
@@ -1083,9 +1087,14 @@
             <img src="assets/icon-192.png" alt="MSB Construções" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMxRjNBNUYiLz48dGV4dCB4PSIxMCIgeT0iNDAiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMzAiPk1TQjwvdGV4dD48L3N2Zz4=';">
             <h1>Controle de EPI</h1>
         </div>
-        <div class="header-date">
-            <i class="fas fa-calendar-alt"></i>
-            <span id="dataSistema"></span>
+        <div class="header-right">
+            <div class="header-date">
+                <i class="fas fa-calendar-alt"></i>
+                <span id="dataSistema"></span>
+            </div>
+            <button class="theme-toggle" title="Alternar tema">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </header>
 
